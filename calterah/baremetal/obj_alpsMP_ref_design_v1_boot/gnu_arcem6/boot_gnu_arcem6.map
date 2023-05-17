@@ -1,0 +1,1316 @@
+
+Allocating common symbols
+Common symbol       size              file
+
+exc_nest_count      0x4               obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+ICCM             0x00100000         0x00008000
+DCCM             0x00a00000         0x00008000
+EXT_ROM          0x007f2000         0x0000df80
+EXT_RAM          0x00a00000         0x00008000
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD e:/arc_gnu/bin/../lib/gcc/arc-elf32/7.3.1/../../../../arc-elf32/lib/em4_fpuda\libm.a
+
+.init           0x007f2000      0x1d4
+                0x007f2000                _f_init = .
+ *(.init_vector)
+ .init_vector   0x007f2000        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ *(.init_bootstrap)
+ .init_bootstrap
+                0x007f2004      0x1d0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+                0x007f2004                _arc_reset
+                0x007f2004                _start
+                0x007f21c0                _exit_loop
+                0x007f21c0                _exit_halt
+                0x007f21d4                _e_init = .
+
+.vector         0x007f2400      0x400
+                0x007f2400                _f_vector = .
+ *(.vector)
+ .vector        0x007f2400      0x400 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+                0x007f2400                exc_entry_table
+                0x007f2800                _e_vector = .
+
+.text           0x007f2800     0xb548
+                0x007f2800                _f_text = .
+ *(.text .text.* .gnu.linkonce.t.*)
+ .text          0x007f2800      0x490 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+                0x007f2800                icache_invalidate_mlines
+                0x007f2864                icache_lock_mlines
+                0x007f28dc                icache_direct_write
+                0x007f2908                icache_direct_read
+                0x007f2934                icache_indirect_read
+                0x007f2968                dcache_invalidate_mlines
+                0x007f29d4                dcache_flush_mlines
+                0x007f2a40                dcache_lock_mlines
+                0x007f2abc                dcache_direct_write
+                0x007f2ae8                dcache_direct_read
+                0x007f2b14                dcache_indirect_read
+                0x007f2b48                dcache_non_cached_region_base
+                0x007f2b50                arc_cache_init
+ .text          0x007f2c90      0x238 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+                0x007f2c90                timer_present
+                0x007f2cbc                timer_start
+                0x007f2d34                timer_stop
+                0x007f2db0                timer_current
+                0x007f2df8                timer_current_high
+                0x007f2e34                timer_int_clear
+                0x007f2e70                timer_init
+                0x007f2eb8                timer_rtc_count
+ .text          0x007f2ec8      0x38c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+                0x007f2f28                exc_int_init
+                0x007f2f9c                exc_entry_install
+                0x007f3010                exc_entry_get
+                0x007f3028                exc_handler_install
+                0x007f3044                exc_handler_get
+                0x007f305c                int_disable
+                0x007f3084                int_enable
+                0x007f30ac                int_enabled
+                0x007f30cc                int_ipm_get
+                0x007f30dc                int_ipm_set
+                0x007f3108                int_pri_get
+                0x007f312c                int_pri_set
+                0x007f3164                int_secure_set
+                0x007f3198                int_probe
+                0x007f31b8                int_sw_trigger
+                0x007f31d4                int_level_config
+                0x007f31f8                cpu_lock
+                0x007f3200                cpu_unlock
+                0x007f3208                cpu_lock_save
+                0x007f3210                cpu_unlock_restore
+                0x007f3218                int_handler_install
+                0x007f3238                int_handler_get
+ .text          0x007f3254       0xbc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+                0x007f3254                __do_global_ctors_aux
+                0x007f3288                __do_global_dtors_aux
+                0x007f32c0                __cxa_atexit
+                0x007f32c4                __do_init_array_aux
+                0x007f330c                __cxa_pure_virtual
+ .text          0x007f3310      0x348 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+                0x007f3310                exc_entry_cpu
+                0x007f3484                exc_entry_int
+                0x007f3518                exc_entry_firq
+                0x007f3654                abort
+ .text          0x007f3658        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .text          0x007f3658      0x304 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+                0x007f3658                clock_select_source
+                0x007f3698                clock_divider
+                0x007f3730                clock_frequency
+                0x007f3854                system_clock_init
+                0x007f391c                bus_clk_div
+                0x007f3930                apb_clk_div
+                0x007f3944                apb_ref_clk_div
+                0x007f3958                switch_gpio_out_clk
+ .text          0x007f395c      0x160 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+                0x007f395c                io_mux_init
+                0x007f3994                io_get_dmumode
+                0x007f39a8                io_sel_dmumode
+                0x007f39c8                io_mux_lvds_dump
+                0x007f39e4                io_mux_dbgbus_dump
+                0x007f3a78                io_mux_dbgbus_mode_stop
+                0x007f3a88                io_mux_free_run
+                0x007f3aa4                io_mux_free_run_disable
+ .text          0x007f3abc       0xa4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+                0x007f3abc                uart_get_dev
+                0x007f3b18                uart_enable
+                0x007f3b50                uart_clock_source
+ .text          0x007f3b60       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+                0x007f3b60                dw_gpio_get_dev
+ .text          0x007f3b94       0x5c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+                0x007f3b94                can_get_dev
+ .text          0x007f3bf0       0x68 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+                0x007f3bf0                timer_get_dev
+                0x007f3c24                pwm_get_dev
+ .text          0x007f3c58      0x160 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+                0x007f3c58                dw_ssi_get_dev
+ .text          0x007f3db8        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+                0x007f3db8                xip_get_dev
+ .text          0x007f3dc0        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+                0x007f3dc0                crc_get_dev
+ .text          0x007f3dc8       0x3c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+                0x007f3dc8                can_get_baud
+ .text          0x007f3e04       0x30 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+                0x007f3e04                canif_get_rxpdu_cfg
+                0x007f3e10                canif_get_txpdu_cfg
+                0x007f3e1c                cantp_get_nsdu
+                0x007f3e28                uds_get_uds_connect
+ .text          0x007f3e34        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+                0x007f3e34                flash_header_get
+ .text          0x007f3e3c     0x1124 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+                0x007f4f48                can_install_ops
+ .text          0x007f4f60      0xe38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+                0x007f5d80                dw_ssi_install_ops
+ .text          0x007f5d98      0x2c8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+                0x007f5ff4                dw_uart_fifo_flush
+                0x007f6048                dw_uart_install_ops
+ .text          0x007f6060      0x45c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+                0x007f64a4                dw_gpio_install_ops
+ .text          0x007f64bc      0x20c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+                0x007f66b0                dw_timer_install_ops
+ .text          0x007f66c8     0x26f8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+                0x007f74f0                can_init
+                0x007f795c                can_deinit
+                0x007f7988                _can_update_baud
+                0x007f7a60                can_get_config
+                0x007f7b88                can_set_config
+                0x007f80e8                can_indication_register
+                0x007f8110                can_confirmation_register
+                0x007f8138                can_error_event_register
+                0x007f8160                can_xfer_buffer
+                0x007f8180                can_read
+                0x007f830c                can_frame_read
+                0x007f8328                can_frame_params_setup
+                0x007f8370                can_is_busy
+                0x007f83a0                can_write_isr
+                0x007f8510                can_send_data_isr
+                0x007f863c                can_interrupt_enable
+                0x007f88d4                can_write
+                0x007f8a9c                can_send_data
+                0x007f8be0                can_xfer_callback_install
+                0x007f8c10                can_receive_data
+                0x007f8d54                can_bus_off_recover
+ .text          0x007f8dc0       0x1c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+                0x007f8dc0                otp_get_chip_ver
+ .text          0x007f8ddc      0x450 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+                0x007f8e60                gpio_init
+                0x007f8ec8                gpio_set_direct
+                0x007f8f24                gpio_write
+                0x007f8f80                gpio_read
+                0x007f8fe0                gpio_int_register
+                0x007f90fc                gpio_int_unregister
+                0x007f9170                gpio_interrupt_enable
+                0x007f920c                gpio_interrupt_clear
+ .text          0x007f922c      0x2a4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+                0x007f92ac                dw_timer_init
+                0x007f9308                dw_timer_mode_config
+                0x007f934c                dw_timer_start
+                0x007f944c                dw_timer_stop
+ .text          0x007f94d0      0x450 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+                0x007f955c                flash_xip_init
+                0x007f95d0                flash_xip_readb
+                0x007f95f8                flash_xip_read
+                0x007f9620                flash_xip_program
+                0x007f96ac                flash_xip_program_done
+                0x007f96d0                flash_xip_encrypt
+                0x007f97f8                flash_xip_decrypt
+ .text          0x007f9920      0x170 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+                0x007f9920                crc_init
+                0x007f9990                crc32_update
+                0x007f9a04                crc16_update
+                0x007f9a78                crc_output
+                0x007f9a84                crc_init_value
+ .text          0x007f9a90      0x1a8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+                0x007f9a90                uart_init
+                0x007f9b28                uart_write
+                0x007f9bb0                uart_read
+ .text          0x007f9c38      0x6cc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+                0x007f9d4c                flash_reset
+                0x007f9de0                flash_init
+                0x007f9f24                flash_memory_readb
+                0x007f9f2c                flash_memory_readw
+                0x007f9f34                flash_program_resume
+                0x007f9f58                flash_quad_entry
+                0x007f9f80                flash_wait_status
+                0x007fa138                flash_memory_writeb
+                0x007fa140                flash_memory_writew
+                0x007fa148                _flash_memory_erase
+                0x007fa300                flash_memory_erase
+ .text          0x007fa304      0x284 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+                0x007fa514                get_flash_device
+                0x007fa560                flash_xip_param_get
+ .text          0x007fa588      0x5d8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+                0x007fa5e8                flash_sfdp_detect
+                0x007fa654                flash_sfdp_param_read
+ .text          0x007fab60      0x150 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+                0x007fab60                flash_cfi_detect
+                0x007fabc0                flash_cfi_param_read
+ .text          0x007facb0      0x46c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+                0x007facb0                canif_init
+                0x007fad50                canif_transmit
+                0x007faec8                canif_tx_confirmation
+                0x007fafb8                canif_tx_confirmation_conver
+                0x007faff0                canif_rx_indication
+                0x007fb064                canif_rx_indication_conver
+                0x007fb0ec                canif_callback_register
+ .text          0x007fb11c      0xc84 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+                0x007fb2b4                cantp_init
+                0x007fb35c                cantp_transmit
+                0x007fb4b0                cantp_confirmation
+                0x007fb5f0                cantp_indication
+                0x007fbad0                cantp_state_main
+ .text          0x007fbda0      0x760 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+                0x007fbdc8                uds_dispatch_init
+                0x007fbea8                uds_sd_send_response
+                0x007fbed8                uds_sd_state_main
+                0x007fbfd4                uds_sd_rxdata_copy
+                0x007fc078                uds_sd_xfer_capability
+                0x007fc080                uds_sd_txdata_copy
+                0x007fc124                uds_sd_confirmation
+                0x007fc1e4                diagnostic_change_session
+                0x007fc2f4                uds_sd_malloc
+                0x007fc3d0                uds_sd_indication
+                0x007fc4bc                uds_findsession
+ .text          0x007fc500       0x3c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+                0x007fc500                timer_expired_callback
+                0x007fc50c                can_uds_init
+ .text          0x007fc53c      0x280 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+                0x007fc53c                uds_ecu_reset
+                0x007fc5e8                uds_diagnostic_control
+                0x007fc6bc                uds_diagnostic_control_rsp_done
+                0x007fc700                uds_communication_control
+                0x007fc774                uds_communication_control_rsp_done
+                0x007fc778                uds_control_dtc_setting
+                0x007fc7b8                dcm_services_reset
+ .text          0x007fc7bc      0x130 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+                0x007fc7bc                can_uds_routine_control
+ .text          0x007fc8ec       0x10 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+                0x007fc8ec                uds_routines_get
+ .text          0x007fc8fc      0x2a0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+                0x007fc8fc                set_flash_addr
+                0x007fc908                can_uds_request_download
+                0x007fca10                can_uds_transfer_data
+                0x007fcb7c                can_uds_transfer_exit
+ .text          0x007fcb9c       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+                0x007fcb9c                can_post_init
+                0x007fcba0                can_ota_main
+ .text          0x007fcbb0       0x74 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+                0x007fcbb0                routine_nor_flash_erase
+ .text          0x007fcc24      0x270 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+                0x007fcc24                can_trans_init
+                0x007fcc6c                fmcw_radio_pll_clock_en
+                0x007fcd60                fmcw_radio_clk_out_for_cascade
+                0x007fcd64                dummy_printf
+                0x007fcd80                memcpy
+                0x007fcda0                init_hardware_hook
+                0x007fcdac                board_main
+                0x007fce6c                uart_print
+ .text          0x007fce94      0x164 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+                0x007fcee4                system_tick_init
+                0x007fcf24                system_ticks_get
+                0x007fcf38                chip_hw_udelay
+                0x007fcfd8                chip_hw_mdelay
+                0x007fcfe0                set_current_cpu_freq
+                0x007fcfec                tick_callback_register
+ .text          0x007fcff8      0x598 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+                0x007fd324                ota_memcpy
+                0x007fd344                uart_ota_main
+ .text          0x007fd590      0x454 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+                0x007fd624                flash_xip_init_early
+                0x007fd740                xip_nor_load
+                0x007fd77c                normal_boot
+                0x007fd988                aes_init
+                0x007fd9d8                aes_decrypt
+ .text          0x007fd9e4      0x24c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+                0x007fd9e4                fmcw_radio_reboot_cause_set
+                0x007fda9c                fmcw_radio_reboot_cause
+                0x007fdb60                fmcw_radio_reset
+                0x007fdbcc                fmcw_radio_reg_write
+                0x007fdbf8                fmcw_radio_reg_read_field
+ .text          0x007fdc30      0x118 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+                0x007fdc30                gen_crc_table
+                0x007fdc6c                update_crc
+                0x007fdc94                hw_crc32_update
+                0x007fdd48                _e_text = .
+
+.rodata         0x007fdd48     0x1118
+                0x007fdd48                _f_rodata = .
+                0x007fdd48                . = ALIGN (0x4)
+                0x007fdd48                __CTOR_LIST__ = .
+                0x007fdd48        0x4 LONG 0x0 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
+ *(SORT_BY_NAME(.ctors*))
+                0x007fdd4c        0x4 LONG 0x0
+                0x007fdd50                __CTOR_END__ = .
+                0x007fdd50                . = ALIGN (0x4)
+                0x007fdd50                __init_array_start = .
+ *(SORT_BY_NAME(.init_array*))
+                0x007fdd50                __init_array_end = .
+                0x007fdd50                . = ALIGN (0x4)
+                0x007fdd50                __DTOR_LIST__ = .
+                0x007fdd50        0x4 LONG 0x0 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
+ *(SORT_BY_NAME(.dtors*))
+                0x007fdd54        0x4 LONG 0x0
+                0x007fdd58                __DTOR_END__ = .
+ *(.rodata .rodata.* .gnu.linkonce.r.*)
+ .rodata.str1.4
+                0x007fdd58       0x91 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+                                 0x94 (size before relaxing)
+ *fill*         0x007fdde9        0x3 
+ .rodata        0x007fddec       0x9c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .rodata        0x007fde88      0x1c8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .rodata        0x007fe050       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .rodata        0x007fe064       0x64 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .rodata        0x007fe0c8       0x58 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .rodata        0x007fe120       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .rodata        0x007fe138       0x24 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .rodata.str1.4
+                0x007fe15c      0x837 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+                                0x838 (size before relaxing)
+ *fill*         0x007fe993        0x1 
+ .rodata        0x007fe994      0x2c8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .rodata        0x007fec5c       0x3c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .rodata.str1.4
+                0x007fec98       0x38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .rodata        0x007fecd0       0x3c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .rodata.str1.4
+                0x007fed0c       0x10 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .rodata        0x007fed1c       0x24 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .rodata        0x007fed40       0xf0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .rodata        0x007fee30       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .rodata        0x007fee48       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+                0x007fee60                _e_rodata = .
+
+.data           0x00a00000      0xd09 load address 0x007fee60
+                0x00a00000                _f_data = .
+ *(.data .data.* .gnu.linkonce.d.*)
+ .data          0x00a00000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .data          0x00a00000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .data          0x00a00000      0x200 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+                0x00a00000                exc_int_handler_table
+ .data          0x00a00200        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .data          0x00a00200        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .data          0x00a00200        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .data          0x00a00200        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .data          0x00a00200        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .data          0x00a00200       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .data          0x00a00220        0xc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .data          0x00a0022c       0x48 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .data          0x00a00274       0x30 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .data          0x00a002a4       0x78 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .data          0x00a0031c        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .data          0x00a00324        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .data          0x00a0032c      0x18c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .data          0x00a004b8      0x1ec obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .data          0x00a006a4        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .data          0x00a006a4       0xb8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+                0x00a00758                can_tx_done_flag
+ .data          0x00a0075c       0x50 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .data          0x00a007ac       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .data          0x00a007d8       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .data          0x00a0080c       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .data          0x00a00840      0x430 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+                0x00a00840                tx_fifo_param
+                0x00a0084c                rx_fifo_param
+ .data          0x00a00c70        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .data          0x00a00c70        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .data          0x00a00c70       0x10 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .data          0x00a00c80        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .data          0x00a00c80        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .data          0x00a00c80        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .data          0x00a00c84        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .data          0x00a00c84       0x38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .data          0x00a00cbc        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .data          0x00a00cbc        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .data          0x00a00cbc        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .data          0x00a00cbc        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .data          0x00a00cbc        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .data          0x00a00cbc        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+                0x00a00cbc                update_test
+ .data          0x00a00cc4        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .data          0x00a00cc4        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .data          0x00a00cc4       0x44 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .data          0x00a00d08        0x1 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .data          0x00a00d09        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+                0x00a00d09                _f_sdata = .
+                0x00a00d09                __SDATA_BEGIN__ = .
+ *(.sdata .sdata.* .gnu.linkonce.s.*)
+                0x00a00d09                _e_sdata = .
+                0x00a00d09                _e_data = .
+
+.nvm_header     0x00a00d0c      0x200 load address 0x007ffb69
+ .nvm_header    0x00a00d0c      0x200 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+                0x00a00d0c                sensor_flash_header
+
+.bss            0x00a00f10     0x14c4 load address 0x007ffd70
+                [!provide]                PROVIDE (__sbss_start, .)
+                [!provide]                PROVIDE (___sbss_start, .)
+                0x00a00f10                _f_bss = .
+                0x00a00f10                _f_sbss = .
+ *(.dynsbss)
+ *(.sbss .sbss.* .gnu.linkonce.sb.*)
+ *(.scommon)
+                0x00a00f10                _e_sbss = .
+                [!provide]                PROVIDE (__sbss_end, .)
+                [!provide]                PROVIDE (___sbss_end, .)
+ *(.dynbss)
+ *(.bss .bss.* .gnu.linkonce.b.*)
+ .bss           0x00a00f10       0x10 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .bss           0x00a00f20        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .bss           0x00a00f20        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .bss           0x00a00f20        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+                0x00a00f20                __dso_handle
+ .bss           0x00a00f24        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .bss           0x00a00f24        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .bss           0x00a00f24        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .bss           0x00a00f24        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .bss           0x00a00f24        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .bss           0x00a00f28        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .bss           0x00a00f2c        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .bss           0x00a00f30       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+                0x00a00f38                usr_buf
+ .bss           0x00a00f48        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .bss           0x00a00f4c        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .bss           0x00a00f4c        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .bss           0x00a00f4c        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .bss           0x00a00f4c        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .bss           0x00a00f4c        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .bss           0x00a00f4c        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+                0x00a00f4c                can_node_rec_flag
+ .bss           0x00a00f50        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .bss           0x00a00f58        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .bss           0x00a00f58        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .bss           0x00a00f58        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .bss           0x00a00f58      0x434 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+                0x00a00f58                assert_reset_flag
+ .bss           0x00a0138c        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .bss           0x00a0138c       0x84 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .bss           0x00a01410       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+                0x00a01420                dw_timer
+ .bss           0x00a01424        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .bss           0x00a01428        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .bss           0x00a01428        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .bss           0x00a01430        0x8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .bss           0x00a01438       0x5c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .bss           0x00a01494        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .bss           0x00a01494        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .bss           0x00a01494       0xbc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .bss           0x00a01550      0x218 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .bss           0x00a01768      0x820 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .bss           0x00a01f88        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .bss           0x00a01f88       0x10 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .bss           0x00a01f98        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .bss           0x00a01f98        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .bss           0x00a01f98       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .bss           0x00a01fac        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .bss           0x00a01fac        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .bss           0x00a01fac        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .bss           0x00a01fac       0x10 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .bss           0x00a01fbc       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .bss           0x00a01fd0        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .bss           0x00a01fd0        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .bss           0x00a01fd0      0x400 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+ *(COMMON)
+ COMMON         0x00a023d0        0x4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+                0x00a023d0                exc_nest_count
+                0x00a023d4                _e_bss = .
+
+.stack          0x00a023d4     0x1000 load address 0x007ffd69
+                0x00a023d4                . = ALIGN (0x4)
+                0x00a023d4                _f_stack = .
+                0x00a033d4                . = (. + 0x1000)
+ *fill*         0x00a023d4     0x1000 
+                0x00a033d4                _e_stack = .
+
+.heap           0x00a033d4        0x0 load address 0x007ffd69
+                0x00a033d4                . = ALIGN (0x4)
+                0x00a033d4                __start_heap = .
+                0x00a033d4                _f_heap = .
+                0x00a033d4                _e_heap = .
+                0x00a033d4                __end_heap = .
+                0x00a033d4                end = .
+                0x007f2800                _load_addr_text = LOADADDR (.text)
+                0x007fdd48                _load_addr_rodata = LOADADDR (.rodata)
+                0x007fee60                _load_addr_data = LOADADDR (.data)
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+LOAD obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+OUTPUT(obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot_gnu_arcem6.elf elf32-littlearc)
+
+.debug_info     0x00000000    0x317bd
+ .debug_info    0x00000000      0x7e8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_info    0x000007e8      0x415 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_info    0x00000bfd      0xd41 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_info    0x0000193e      0x1ce obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_info    0x00001b0c       0x26 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .debug_info    0x00001b32       0x26 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .debug_info    0x00001b58      0xd1d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_info    0x00002875      0xc8b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .debug_info    0x00003500      0x452 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_info    0x00003952      0x16f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .debug_info    0x00003ac1      0x2b1 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .debug_info    0x00003d72      0x273 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .debug_info    0x00003fe5      0x4b7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .debug_info    0x0000449c      0x117 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .debug_info    0x000045b3      0x148 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .debug_info    0x000046fb      0x262 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .debug_info    0x0000495d      0x813 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .debug_info    0x00005170      0x6b7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .debug_info    0x00005827     0x548f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_info    0x0000acb6     0x3c52 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_info    0x0000e908      0xf57 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_info    0x0000f85f     0x1c5b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_info    0x000114ba     0x1439 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_info    0x000128f3     0x562b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_info    0x00017f1e      0x21a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .debug_info    0x00018138      0xce8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_info    0x00018e20      0x9ed obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_info    0x0001980d     0x1096 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_info    0x0001a8a3      0xb09 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_info    0x0001b3ac      0x684 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .debug_info    0x0001ba30     0x1e3b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_info    0x0001d86b      0xeba obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_info    0x0001e725     0x1e78 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_info    0x0002059d      0x9b2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_info    0x00020f4f     0x1906 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_info    0x00022855     0x2103 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_info    0x00024958     0x1c70 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_info    0x000265c8      0xaaf obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .debug_info    0x00027077      0xe52 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .debug_info    0x00027ec9      0xc64 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_info    0x00028b2d      0xaee obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .debug_info    0x0002961b      0xdde obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_info    0x0002a3f9      0x9e7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .debug_info    0x0002ade0      0xa0c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .debug_info    0x0002b7ec     0x118e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_info    0x0002c97a      0x3ee obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .debug_info    0x0002cd68     0x1439 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_info    0x0002e1a1     0x1a7a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_info    0x0002fc1b     0x1575 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_info    0x00031190      0x62d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_abbrev   0x00000000     0x81e3
+ .debug_abbrev  0x00000000      0x272 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_abbrev  0x00000272      0x1b2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_abbrev  0x00000424      0x3dd obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_abbrev  0x00000801      0x14d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_abbrev  0x0000094e       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .debug_abbrev  0x00000962       0x14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .debug_abbrev  0x00000976      0x350 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_abbrev  0x00000cc6      0x250 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .debug_abbrev  0x00000f16      0x219 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_abbrev  0x0000112f       0xf4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .debug_abbrev  0x00001223      0x18b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .debug_abbrev  0x000013ae      0x120 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .debug_abbrev  0x000014ce      0x1f7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .debug_abbrev  0x000016c5       0xac obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .debug_abbrev  0x00001771       0xac obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .debug_abbrev  0x0000181d      0x129 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .debug_abbrev  0x00001946      0x170 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .debug_abbrev  0x00001ab6      0x157 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .debug_abbrev  0x00001c0d      0x418 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_abbrev  0x00002025      0x3f9 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_abbrev  0x0000241e      0x2ed obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_abbrev  0x0000270b      0x39a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_abbrev  0x00002aa5      0x2e5 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_abbrev  0x00002d8a      0x5ed obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_abbrev  0x00003377      0x15a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .debug_abbrev  0x000034d1      0x362 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_abbrev  0x00003833      0x31b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_abbrev  0x00003b4e      0x344 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_abbrev  0x00003e92      0x27c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_abbrev  0x0000410e      0x1dd obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .debug_abbrev  0x000042eb      0x4a8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_abbrev  0x00004793      0x301 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_abbrev  0x00004a94      0x3d1 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_abbrev  0x00004e65      0x1c4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_abbrev  0x00005029      0x4d5 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_abbrev  0x000054fe      0x4fa obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_abbrev  0x000059f8      0x52e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_abbrev  0x00005f26      0x24a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .debug_abbrev  0x00006170      0x2e3 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .debug_abbrev  0x00006453      0x288 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_abbrev  0x000066db      0x1ea obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .debug_abbrev  0x000068c5      0x36f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_abbrev  0x00006c34      0x21c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .debug_abbrev  0x00006e50      0x214 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .debug_abbrev  0x00007064      0x39b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_abbrev  0x000073ff      0x191 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .debug_abbrev  0x00007590      0x40b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_abbrev  0x0000799b      0x43c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_abbrev  0x00007dd7      0x225 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_abbrev  0x00007ffc      0x1e7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_loc      0x00000000    0x2116f
+ .debug_loc     0x00000000      0x4e7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_loc     0x000004e7      0x3e8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_loc     0x000008cf      0x5e9 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_loc     0x00000eb8       0x91 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_loc     0x00000f49      0x7e3 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_loc     0x0000172c      0x4d7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .debug_loc     0x00001c03      0x161 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_loc     0x00001d64       0x73 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .debug_loc     0x00001dd7      0x1b5 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .debug_loc     0x00001f8c       0x21 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .debug_loc     0x00001fad       0x78 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .debug_loc     0x00002025       0x84 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .debug_loc     0x000020a9     0x6d91 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_loc     0x00008e3a     0x3cd6 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_loc     0x0000cb10     0x1198 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_loc     0x0000dca8     0x18bf obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_loc     0x0000f567     0x11b2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_loc     0x00010719     0x4e13 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_loc     0x0001552c       0x61 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .debug_loc     0x0001558d      0xbe8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_loc     0x00016175      0x6c0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_loc     0x00016835     0x10a0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_loc     0x000178d5      0x754 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_loc     0x00018029      0x1ce obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .debug_loc     0x000181f7      0xc2e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_loc     0x00018e25      0x4a4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_loc     0x000192c9      0xf39 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_loc     0x0001a202      0x2ef obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_loc     0x0001a4f1      0xb63 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_loc     0x0001b054     0x1741 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_loc     0x0001c795     0x13ba obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_loc     0x0001db4f       0x21 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .debug_loc     0x0001db70      0x507 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .debug_loc     0x0001e077      0x32c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_loc     0x0001e3a3       0x21 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .debug_loc     0x0001e3c4      0x55e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_loc     0x0001e922      0x18a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .debug_loc     0x0001eaac      0x205 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_loc     0x0001ecb1       0xa4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .debug_loc     0x0001ed55      0x81c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_loc     0x0001f571      0xc6a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_loc     0x000201db      0xba4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_loc     0x00020d7f      0x3f0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_aranges  0x00000000      0x640
+ .debug_aranges
+                0x00000000       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_aranges
+                0x00000020       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_aranges
+                0x00000040       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_aranges
+                0x00000060       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_aranges
+                0x00000080       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .debug_aranges
+                0x000000a0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .debug_aranges
+                0x000000c0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_aranges
+                0x000000e0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .debug_aranges
+                0x00000100       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_aranges
+                0x00000120       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .debug_aranges
+                0x00000140       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .debug_aranges
+                0x00000160       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .debug_aranges
+                0x00000180       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .debug_aranges
+                0x000001a0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .debug_aranges
+                0x000001c0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .debug_aranges
+                0x000001e0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .debug_aranges
+                0x00000200       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .debug_aranges
+                0x00000220       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .debug_aranges
+                0x00000240       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_aranges
+                0x00000260       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_aranges
+                0x00000280       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_aranges
+                0x000002a0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_aranges
+                0x000002c0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_aranges
+                0x000002e0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_aranges
+                0x00000300       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .debug_aranges
+                0x00000320       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_aranges
+                0x00000340       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_aranges
+                0x00000360       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_aranges
+                0x00000380       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_aranges
+                0x000003a0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .debug_aranges
+                0x000003c0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_aranges
+                0x000003e0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_aranges
+                0x00000400       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_aranges
+                0x00000420       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_aranges
+                0x00000440       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_aranges
+                0x00000460       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_aranges
+                0x00000480       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_aranges
+                0x000004a0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .debug_aranges
+                0x000004c0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .debug_aranges
+                0x000004e0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_aranges
+                0x00000500       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .debug_aranges
+                0x00000520       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_aranges
+                0x00000540       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .debug_aranges
+                0x00000560       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .debug_aranges
+                0x00000580       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_aranges
+                0x000005a0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .debug_aranges
+                0x000005c0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_aranges
+                0x000005e0       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_aranges
+                0x00000600       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_aranges
+                0x00000620       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_ranges   0x00000000     0x1c68
+ .debug_ranges  0x00000000       0x90 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_ranges  0x00000090       0x38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_ranges  0x000000c8       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_ranges  0x000000e0       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_ranges  0x000000f8       0x48 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_ranges  0x00000140       0x30 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_ranges  0x00000170      0x328 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_ranges  0x00000498      0x488 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_ranges  0x00000920       0xa0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_ranges  0x000009c0      0x130 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_ranges  0x00000af0       0xa8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_ranges  0x00000b98      0x380 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_ranges  0x00000f18       0x30 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_ranges  0x00000f48       0x30 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_ranges  0x00000f78      0x188 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_ranges  0x00001100      0x108 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_ranges  0x00001208       0x38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_ranges  0x00001240       0x48 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_ranges  0x00001288       0x90 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_ranges  0x00001318       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_ranges  0x00001330      0x190 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_ranges  0x000014c0      0x390 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_ranges  0x00001850      0x1c8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_ranges  0x00001a18       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_ranges  0x00001a38       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_ranges  0x00001a50       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_ranges  0x00001a68       0x18 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_ranges  0x00001a80       0x80 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_ranges  0x00001b00       0x90 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_ranges  0x00001b90       0xd8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_line     0x00000000     0x9c2e
+ .debug_line    0x00000000      0x2f2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_line    0x000002f2      0x199 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_line    0x0000048b      0x307 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_line    0x00000792       0x7e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_line    0x00000810       0xae obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .debug_line    0x000008be       0xc7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .debug_line    0x00000985      0x33e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_line    0x00000cc3      0x22b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .debug_line    0x00000eee      0x1f7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_line    0x000010e5      0x157 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .debug_line    0x0000123c      0x177 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .debug_line    0x000013b3      0x16f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .debug_line    0x00001522      0x246 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .debug_line    0x00001768      0x129 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .debug_line    0x00001891      0x130 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .debug_line    0x000019c1      0x165 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .debug_line    0x00001b26      0x1a7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .debug_line    0x00001ccd      0x1d9 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .debug_line    0x00001ea6      0xca8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_line    0x00002b4e      0xb3e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_line    0x0000368c      0x327 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_line    0x000039b3      0x487 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_line    0x00003e3a      0x2fc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_line    0x00004136      0xe14 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_line    0x00004f4a      0x152 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .debug_line    0x0000509c      0x3e1 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_line    0x0000547d      0x323 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_line    0x000057a0      0x42c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_line    0x00005bcc      0x2d4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_line    0x00005ea0      0x25a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .debug_line    0x000060fa      0x52e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_line    0x00006628      0x334 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_line    0x0000695c      0x3e6 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_line    0x00006d42      0x1e6 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_line    0x00006f28      0x3df obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_line    0x00007307      0x5e3 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_line    0x000078ea      0x4d9 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_line    0x00007dc3      0x1dc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .debug_line    0x00007f9f      0x2cc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .debug_line    0x0000826b      0x1d6 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_line    0x00008441      0x1ba obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .debug_line    0x000085fb      0x307 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_line    0x00008902      0x18b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .debug_line    0x00008a8d      0x1db obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .debug_line    0x00008c68      0x35a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_line    0x00008fc2      0x17a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .debug_line    0x0000913c      0x3a7 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_line    0x000094e3      0x3ec obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_line    0x000098cf      0x1eb obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_line    0x00009aba      0x174 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_str      0x00000000     0x71f3
+ .debug_str     0x00000000      0x433 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+                                0x4ac (size before relaxing)
+ .debug_str     0x00000433       0x6b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+                                0x284 (size before relaxing)
+ .debug_str     0x0000049e      0x2ec obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+                                0x612 (size before relaxing)
+ .debug_str     0x0000078a      0x137 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+                                0x271 (size before relaxing)
+ .debug_str     0x000008c1       0x1d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+                                 0x5d (size before relaxing)
+ .debug_str     0x000008de        0xe obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+                                 0x5d (size before relaxing)
+ .debug_str     0x000008ec      0x323 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+                                0x565 (size before relaxing)
+ .debug_str     0x00000c0f      0x287 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+                                0x517 (size before relaxing)
+ .debug_str     0x00000e96       0xfa obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+                                0x4aa (size before relaxing)
+ .debug_str     0x00000f90       0xbf obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+                                0x2c6 (size before relaxing)
+ .debug_str     0x0000104f       0xfe obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+                                0x369 (size before relaxing)
+ .debug_str     0x0000114d      0x129 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+                                0x342 (size before relaxing)
+ .debug_str     0x00001276      0x11f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+                                0x502 (size before relaxing)
+ .debug_str     0x00001395       0x51 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+                                0x25b (size before relaxing)
+ .debug_str     0x000013e6       0x66 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+                                0x278 (size before relaxing)
+ .debug_str     0x0000144c       0xce obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+                                0x362 (size before relaxing)
+ .debug_str     0x0000151a      0x519 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+                                0x808 (size before relaxing)
+ .debug_str     0x00001a33      0x7c4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+                                0xa67 (size before relaxing)
+ .debug_str     0x000021f7      0xcc9 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+                               0x11f8 (size before relaxing)
+ .debug_str     0x00002ec0      0x68f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+                                0xd5d (size before relaxing)
+ .debug_str     0x0000354f      0x353 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+                                0x6c3 (size before relaxing)
+ .debug_str     0x000038a2      0x670 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+                                0xa00 (size before relaxing)
+ .debug_str     0x00003f12      0x1ad obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+                                0x8b1 (size before relaxing)
+ .debug_str     0x000040bf      0xa02 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+                               0x1a96 (size before relaxing)
+ .debug_str     0x00004ac1       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+                                0x2b1 (size before relaxing)
+ .debug_str     0x00004aed       0xcb obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+                                0x5df (size before relaxing)
+ .debug_str     0x00004bb8       0xb2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+                                0x592 (size before relaxing)
+ .debug_str     0x00004c6a      0x29d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+                                0x5ad (size before relaxing)
+ .debug_str     0x00004f07      0x1b2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+                                0x4ca (size before relaxing)
+ .debug_str     0x000050b9       0x2d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+                                0x6b7 (size before relaxing)
+ .debug_str     0x000050e6      0x33f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+                                0xfe6 (size before relaxing)
+ .debug_str     0x00005425      0x19c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+                                0xeb4 (size before relaxing)
+ .debug_str     0x000055c1      0x439 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+                                0xecf (size before relaxing)
+ .debug_str     0x000059fa      0x175 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+                                0x7a9 (size before relaxing)
+ .debug_str     0x00005b6f      0x228 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+                                0xdbb (size before relaxing)
+ .debug_str     0x00005d97      0x5fd obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+                                0xe4f (size before relaxing)
+ .debug_str     0x00006394      0x302 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+                                0xe96 (size before relaxing)
+ .debug_str     0x00006696       0x61 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+                                0x76f (size before relaxing)
+ .debug_str     0x000066f7      0x28f obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+                                0xa52 (size before relaxing)
+ .debug_str     0x00006986      0x18d obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+                                0x82f (size before relaxing)
+ .debug_str     0x00006b13       0x23 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+                                0x7cc (size before relaxing)
+ .debug_str     0x00006b36       0xfc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+                                0x883 (size before relaxing)
+ .debug_str     0x00006c32       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+                                0x69c (size before relaxing)
+ .debug_str     0x00006c5e       0x3e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+                                0x6b6 (size before relaxing)
+ .debug_str     0x00006c9c      0x11b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+                                0x8ae (size before relaxing)
+ .debug_str     0x00006db7       0x8a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+                                0x3c9 (size before relaxing)
+ .debug_str     0x00006e41      0x1e2 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+                                0x9b2 (size before relaxing)
+ .debug_str     0x00007023       0xdc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+                                0xdd8 (size before relaxing)
+ .debug_str     0x000070ff       0xaa obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+                                0x3b0 (size before relaxing)
+ .debug_str     0x000071a9       0x4a obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+                                0x392 (size before relaxing)
+
+.comment        0x00000000       0x42
+ .comment       0x00000000       0x42 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+                                 0x43 (size before relaxing)
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .comment       0x00000042       0x43 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.note.GNU-stack
+                0x00000000        0x0
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .note.GNU-stack
+                0x00000000        0x0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.ARC.attributes
+                0x00000000       0x36
+ .ARC.attributes
+                0x00000000       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .ARC.attributes
+                0x0000002c       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .ARC.attributes
+                0x00000058       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .ARC.attributes
+                0x00000084       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .ARC.attributes
+                0x000000b0       0x28 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exc_asm.o
+ .ARC.attributes
+                0x000000d8       0x25 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_startup.o
+ .ARC.attributes
+                0x000000fd       0x31 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .ARC.attributes
+                0x0000012e       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .ARC.attributes
+                0x00000157       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .ARC.attributes
+                0x00000180       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .ARC.attributes
+                0x000001a9       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .ARC.attributes
+                0x000001d2       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .ARC.attributes
+                0x000001fb       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .ARC.attributes
+                0x00000224       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .ARC.attributes
+                0x0000024d       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .ARC.attributes
+                0x00000276       0x2b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .ARC.attributes
+                0x000002a1       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .ARC.attributes
+                0x000002ca       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .ARC.attributes
+                0x000002f3       0x2e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .ARC.attributes
+                0x00000321       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .ARC.attributes
+                0x00000355       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .ARC.attributes
+                0x00000389       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .ARC.attributes
+                0x000003b5       0x2b obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .ARC.attributes
+                0x000003e0       0x36 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .ARC.attributes
+                0x00000416       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .ARC.attributes
+                0x00000442       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .ARC.attributes
+                0x0000046e       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .ARC.attributes
+                0x0000049a       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .ARC.attributes
+                0x000004c6       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .ARC.attributes
+                0x000004f2       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .ARC.attributes
+                0x0000051b       0x36 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .ARC.attributes
+                0x00000551       0x36 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .ARC.attributes
+                0x00000587       0x2e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .ARC.attributes
+                0x000005b5       0x2e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .ARC.attributes
+                0x000005e3       0x2e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .ARC.attributes
+                0x00000611       0x36 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .ARC.attributes
+                0x00000647       0x2e obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .ARC.attributes
+                0x00000675       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .ARC.attributes
+                0x0000069e       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .ARC.attributes
+                0x000006ca       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .ARC.attributes
+                0x000006f6       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .ARC.attributes
+                0x0000071f       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .ARC.attributes
+                0x0000074b       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .ARC.attributes
+                0x00000774       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .ARC.attributes
+                0x000007a0       0x29 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .ARC.attributes
+                0x000007c9       0x33 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .ARC.attributes
+                0x000007fc       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .ARC.attributes
+                0x00000828       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .ARC.attributes
+                0x0000085c       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .ARC.attributes
+                0x00000888       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o
+
+.debug_frame    0x00000000     0x2a28
+ .debug_frame   0x00000000      0x18c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_cache.o
+ .debug_frame   0x0000018c       0x9c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_timer.o
+ .debug_frame   0x00000228      0x1c0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/arc_exception.o
+ .debug_frame   0x000003e8       0xac obj_alpsMP_ref_design_v1_boot/gnu_arcem6/arc/startup/arc_cxx_support.o
+ .debug_frame   0x00000494       0xd8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/clkgen/clkgen.o
+ .debug_frame   0x0000056c       0x90 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/mux/mux.o
+ .debug_frame   0x000005fc       0x60 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_uart/dw_uart_obj.o
+ .debug_frame   0x0000065c       0x2c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/gpio/dw_gpio_obj.o
+ .debug_frame   0x00000688       0x40 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/can_r2p0/can_obj.o
+ .debug_frame   0x000006c8       0x48 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/dw_timer/dw_timer_obj.o
+ .debug_frame   0x00000710       0x38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/designware/ssi/dw_ssi_obj.o
+ .debug_frame   0x00000748       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/xip/xip.o
+ .debug_frame   0x00000768       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/chip/alps/drivers/ip/crc/crc_obj.o
+ .debug_frame   0x00000788       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_baud.o
+ .debug_frame   0x000007a8       0x50 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/can_config.o
+ .debug_frame   0x000007f8       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/board/ref_design/flash_header.o
+ .debug_frame   0x00000818      0x2f0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/can_r2p0/can.o
+ .debug_frame   0x00000b08      0x1b8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/ssi/dw_ssi.o
+ .debug_frame   0x00000cc0       0xd0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_uart/dw_uart.o
+ .debug_frame   0x00000d90       0xf0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/gpio/dw_gpio.o
+ .debug_frame   0x00000e80       0xf0 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/designware/dw_timer/dw_timer.o
+ .debug_frame   0x00000f70      0x69c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/can_hal.o
+ .debug_frame   0x0000160c       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/otp_hal.o
+ .debug_frame   0x0000162c      0x198 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/gpio_hal.o
+ .debug_frame   0x000017c4       0xdc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/timer_hal.o
+ .debug_frame   0x000018a0       0xa4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/xip_hal.o
+ .debug_frame   0x00001944       0x7c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/ip/ip_hal/crc_hal.o
+ .debug_frame   0x000019c0       0xa4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/uart.o
+ .debug_frame   0x00001a64      0x21c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/flash.o
+ .debug_frame   0x00001c80      0x104 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/vendor/giga/giga.o
+ .debug_frame   0x00001d84       0xb8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/sfdp.o
+ .debug_frame   0x00001e3c       0x7c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/device/peripheral/nor_flash/cfi.o
+ .debug_frame   0x00001eb8      0x118 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_if.o
+ .debug_frame   0x00001fd0      0x174 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/can_tp.o
+ .debug_frame   0x00002144      0x240 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds_sd.o
+ .debug_frame   0x00002384       0x48 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/init.o
+ .debug_frame   0x000023cc       0xcc obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/uds.o
+ .debug_frame   0x00002498       0x54 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_control.o
+ .debug_frame   0x000024ec       0x20 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/common/can_uds/routine_table.o
+ .debug_frame   0x0000250c       0x7c obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/services.o
+ .debug_frame   0x00002588       0x38 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/download.o
+ .debug_frame   0x000025c0       0x34 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/uds/routine.o
+ .debug_frame   0x000025f4       0xd8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/main.o
+ .debug_frame   0x000026cc       0xd4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/tick.o
+ .debug_frame   0x000027a0       0xe8 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/uart_ota.o
+ .debug_frame   0x00002888       0xd4 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/flash_boot.o
+ .debug_frame   0x0000295c       0x78 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/fmcw_radio_reset.o
+ .debug_frame   0x000029d4       0x54 obj_alpsMP_ref_design_v1_boot/gnu_arcem6/boot/crc32.o

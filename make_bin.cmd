@@ -1,0 +1,1 @@
+python make_bin.py -s 3 -m xip -sp false -v giga -ba false -tc gnu -c false -aes false

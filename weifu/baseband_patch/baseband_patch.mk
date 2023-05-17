@@ -1,0 +1,60 @@
+# author: Xerxes 2019-9-20
+
+WEIFU_BASEBAND_PATCH_ROOT = $(WEIFU_ROOT)/baseband_patch
+
+WEIFU_BASEBAND_CSRCDIR = $(WEIFU_BASEBAND_PATCH_ROOT)
+WEIFU_BASEBAND_ASMSRCDIR = $(WEIFU_BASEBAND_PATCH_ROOT)
+
+# find all the source files in the target directories
+WEIFU_BASEBAND_CSRCS = $(call get_csrcs, $(WEIFU_BASEBAND_CSRCDIR))
+WEIFU_BASEBAND_ASMSRCS = $(call get_asmsrcs, $(WEIFU_BASEBAND_ASMSRCDIR))
+
+# get object files
+WEIFU_BASEBAND_COBJS = $(call get_relobjs, $(WEIFU_BASEBAND_CSRCS))
+WEIFU_BASEBAND_ASMOBJS = $(call get_relobjs, $(WEIFU_BASEBAND_ASMSRCS))
+WEIFU_BASEBAND_OBJS = $(WEIFU_BASEBAND_COBJS) $(WEIFU_BASEBAND_ASMOBJS)
+
+# get dependency files
+WEIFU_BASEBAND_DEPS = $(call get_deps, $(WEIFU_BASEBAND_OBJS))
+
+
+# genearte library
+WEIFU_BASEBAND_LIB = $(OUT_DIR)/lib_weifu_baseband.a
+
+COMMON_COMPILE_PREREQUISITES += $(WEIFU_BASEBAND_PATCH_ROOT)/baseband_patch.mk
+
+# library generation rule
+$(WEIFU_BASEBAND_LIB): $(WEIFU_BASEBAND_OBJS)
+	$(TRACE_ARCHIVE)
+	$(Q)$(AR) $(AR_OPT) $@ $(WEIFU_BASEBAND_OBJS)
+	
+
+WF_BASEBAND_CFLAG ?= -Wno-unused-variable 
+# specific compile rules
+# user can add rules to compile this library
+# if not rules specified to this library, it will use default compiling rules
+.SECONDEXPANSION:
+$(WEIFU_BASEBAND_COBJS): $(OUT_DIR)/%.o : %.c $$(COMMON_COMPILE_PREREQUISITES)
+	$(TRACE_COMPILE)
+	$(Q)$(CC) -c $(COMPILE_OPT) $(COMPILE_HW_OPT) $(WF_BASEBAND_CFLAG) $< -o $@
+	
+
+.SECONDEXPANSION:
+$(WEIFU_BASEBAND_ASMOBJS): $(OUT_DIR)/%.o : %.s $$(COMMON_COMPILE_PREREQUISITES)
+	$(TRACE_COMPILE)
+	$(Q)$(CC) -c $(ASM_OPT) $(COMPILE_HW_OPT) $< -o $@
+
+CALTERAH_COMMON_CSRC += $(WEIFU_BASEBAND_CSRCS)
+CALTERAH_COMMON_ASMSRCS += $(WEIFU_BASEBAND_ASMSRCS)
+
+CALTERAH_COMMON_COBJS += $(WEIFU_BASEBAND_COBJS)
+CALTERAH_COMMON_ASMOBJS += $(WEIFU_BASEBAND_ASMOBJS)
+
+CALTERAH_COMMON_LIBS += $(WEIFU_BASEBAND_LIB)
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "algorithm": "c",
+        "iterator": "c",
+        "xutility": "c",
+        "xlocale": "c",
+        "cmath": "c",
+        "complex": "c"
+    }
+}
